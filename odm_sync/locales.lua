@@ -44,3 +44,10 @@ Locales['pl'] = { -- Credits to SamWieszKto
     ['time_sync'] = "Czas został zsynchronizowany",
     ['weather_sync'] = "Pogoda została zsynchronizowana",
 }
+
+Locales['de'] = { -- Credits to .voy
+    ['player_joined'] = "Spieler beigetreten - ID: ",
+    ['player_left'] = "Spieler verlassen - ID: ",
+    ['time_sync'] = "Zeit ist nun synchronisiert",
+    ['weather_sync'] = "Wetter ist nun synchronisiert",
+}
