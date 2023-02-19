@@ -12,7 +12,7 @@ Config.TimerToSyncTime = 30 -- This number represents the timer for every time t
 -- Weather Settings
 Config.WeatherSync = true -- Set it to false if you don't want your weather to be synced
 Config.WeatherType = "Summer" -- You have to write here one of the Seasons you can find below. You can customize your own season as you wish.
-Config.TimerToSyncWeather = 50 -- If you wanna test your personal list of Weather put this number around 30 so you can test it and see changes in game.
+Config.TimerToSyncWeather = 600 -- If you wanna test your personal list of Weather put this number around 30 so you can test it and see changes in game.
 
 
 Config.Seasons = {
