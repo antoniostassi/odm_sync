@@ -3,7 +3,7 @@ local players = {}
 local timeBool = false
 local weatherBool = false
 
-function createPlayer(Player)
+function storePlayerInfo(Player)
     local self = {}
     self.id = Player.id
     self.gear = Player.gear
@@ -41,7 +41,7 @@ end)
 
 
 registerForEvent("player_joined", function(Player) -- Notify when players join
-    players[Player.id] = createPlayer(Player)
+    players[Player.id] = storePlayerInfo(Player)
     print("Giocatore ID: "..Player.id.." connesso con la Casata: "..Player.house.." ed il Sesso: ".. Player.gender)
 end)
 
