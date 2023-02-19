@@ -22,7 +22,6 @@ registerForEvent("update", function(delta) -- Syncing Time/Weather
     if timeSync > Config.TimerToSyncTime and timeBool then
         timeSync = 0
         syncTime()
-        world:RpcSet()
     end
     
     if weatherSync > Config.TimerToSyncWeather and weatherBool then
