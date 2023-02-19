@@ -3,16 +3,6 @@ local players = {}
 local timeBool = false
 local weatherBool = false
 
-function storePlayerInfo(Player)
-    local self = {}
-    self.id = Player.id
-    self.gear = Player.gear
-    self.gender = Player.gender
-    self.house = Player.house
-
-    return self
-end
-
 
 registerForEvent("init", function()
     if Config.TimeSync then syncTime() timeBool = true end
@@ -41,13 +31,11 @@ end)
 
 
 registerForEvent("player_joined", function(Player) -- Notify when players join
-    players[Player.id] = storePlayerInfo(Player)
     print("Giocatore ID: "..Player.id.." connesso con la Casata: "..Player.house.." ed il Sesso: ".. Player.gender)
 end)
 
 registerForEvent("player_left", function(Player) -- Notify when players left
     print("Giocatore ID: "..Player.id.." disconnesso")
-    players[Player.id] = nil
 end)
 
 local hour = Config.Hour
