@@ -1,5 +1,8 @@
 Config = {}
 
+-- Language Setting
+Config.Locale = "en" -- Set here your language.
+
 -- Time Settings
 Config.TimeSync = true -- Set it to false if you don't want your time to be synced
 Config.Hour = 12 -- ( This number represents the game time in hours )
@@ -11,6 +14,13 @@ Config.WeatherSync = true -- Set it to false if you don't want your weather to b
 Config.WeatherType = "Clear" -- You can choose one from the list below.
 Config.TimerToSyncWeather = 601 -- This number represents the timer for every time the script has to sync the weather.
 
+--Working progress
+Config.Seasons = {
+    ['Summer'] = {"Clear", "Summer_Overcast_Heavy_01", "LightClouds_01"},
+    ['Winter'] = {},
+    ['Autumn'] = {},
+    ['Spring'] = {}
+}
 --[[ 
     List of Weather :
     Announce

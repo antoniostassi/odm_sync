@@ -1,17 +1,15 @@
--- Credits to Edynu for the base of this code
-
 require("config")
+require("locales")
+
 local players = {}
 local timeBool = false
 local weatherBool = false
-
 
 registerForEvent("init", function()
     if Config.TimeSync then syncTime() timeBool = true end
     if Config.WeatherSync then syncWeather() weatherBool = true end
 end)
 
-local lasttick = 0
 local timeSync = 0
 local weatherSync = 0
 
@@ -31,20 +29,11 @@ registerForEvent("update", function(delta) -- Syncing Time/Weather
     end
 end)
 
-
-registerForEvent("player_joined", function(Player) -- Notify when players join
-    print("Giocatore ID: "..Player.id.." connesso con la Casata: "..Player.house.." ed il Sesso: ".. Player.gender)
-end)
-
-registerForEvent("player_left", function(Player) -- Notify when players left
-    print("Giocatore ID: "..Player.id.." disconnesso")
-end)
-
 local hour = Config.Hour
 local minute = Config.Minute
 
 function syncTime()
-    --print("Time is now synced")
+    print(_U("time_sync"))
     minute = minute + 2
 
     if minute > 59 then
@@ -58,8 +47,16 @@ function syncTime()
 end
 
 function syncWeather()
-    --print("Weather is now synced")
+    print(_U("weather_sync"))
     world.weather = Config.WeatherType -- Choose your favourite weather
     world:RpcSet()
 end
 
+-- Notifying player login/quit
+registerForEvent("player_joined", function(Player) -- Notify when players join
+    print(_U("player_joined")..Player.id)
+end)
+
+registerForEvent("player_left", function(Player) -- Notify when players left
+    print(_U("player_left")..Player.id)
+end)
