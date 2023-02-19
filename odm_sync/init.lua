@@ -1,3 +1,5 @@
+-- Credits to Edynu for the base of this code
+
 require("config")
 local players = {}
 local timeBool = false
