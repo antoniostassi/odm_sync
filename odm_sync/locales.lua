@@ -31,7 +31,7 @@ Locales['it'] = {
     ['weather_sync'] = "Meteo sincronizzato",
 }
 
-Locales['fr'] = { -- Layenz
+Locales['fr'] = { -- Credits to Layenz
     ['player_joined'] = "Un joueur a rejoint - ID: ",
     ['player_left'] = "Un joueur vient de se déconnecter - ID: ",
     ['time_sync'] = "Le temps est maintenant synchronisé",
