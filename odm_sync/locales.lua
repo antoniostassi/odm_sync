@@ -30,3 +30,17 @@ Locales['it'] = {
     ['time_sync'] = "Orario sincronizzato",
     ['weather_sync'] = "Meteo sincronizzato",
 }
+
+Locales['fr'] = { -- Layenz
+    ['player_joined'] = "Un joueur a rejoint - ID: ",
+    ['player_left'] = "Un joueur vient de se déconnecter - ID: ",
+    ['time_sync'] = "Le temps est maintenant synchronisé",
+    ['weather_sync'] = "La météo est maintenant synchronisée",
+}
+
+Locales['pl'] = { -- Credits to SamWieszKto
+    ['player_joined'] = "Gracz dołączył - ID: ",
+    ['player_left'] = "Gracz rozłączył się - ID: ",
+    ['time_sync'] = "Czas został zsynchronizowany",
+    ['weather_sync'] = "Pogoda została zsynchronizowana",
+}
