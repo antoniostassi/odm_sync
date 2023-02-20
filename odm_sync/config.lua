@@ -1,13 +1,14 @@
 Config = {}
 
 -- Language Setting
-Config.Locale = "en" -- Set here your language.
+Config.Locale = "it" -- Set here your language.
 
 -- Time Settings
 Config.TimeSync = true -- Set it to false if you don't want your time to be synced
 Config.Hour = 8 -- ( This number represents the game time in hours )
 Config.Minute = 0 -- ( Same but with minutes )
 Config.TimerToSyncTime = 30 -- This number represents the timer for every time the script has to sync the time.
+Config.RealTime = true -- Set it to true if you want the Real-Life time in game
 
 -- Weather Settings
 Config.WeatherSync = true -- Set it to false if you don't want your weather to be synced

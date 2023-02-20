@@ -6,6 +6,8 @@ local timeBool = false
 local weatherBool = false
 local weatherType -- do not touch
 
+
+
 registerForEvent("init", function()
     if Config.TimeSync then syncTime() timeBool = true end
     if Config.WeatherSync then pickWeather() weatherBool = true end
@@ -43,18 +45,30 @@ function pickWeather()
     end
 end
 
+function sleep(n)
+    os.execute("sleep " .. tonumber(n))
+end
+
 local hour = Config.Hour
 local minute = Config.Minute
 
 function syncTime()
     print(_U("time_sync"))
-    minute = minute + 2
+    if Config.RealTime then 
+            time = os.date('*t')
+            hour = time.hour
+            minute = time.min
+            world.day = time.day
+            world.month = time.month
+    else
+        minute = minute + 2
+        if minute > 59 then
+            minute = 0
+            hour = hour + 1
+        end
 
-    if minute > 59 then
-        minute = 0
-        hour = hour + 1
     end
-
+    print(_U("time_hour")..hour.." - ".._U("time_minute")..minute)
     world.hour = hour
     world.minute = minute
     world:RpcSet()
