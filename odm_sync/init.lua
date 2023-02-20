@@ -9,6 +9,9 @@ local weatherType -- do not touch
 
 
 registerForEvent("init", function()
+    for k,v in pairs(Config.WorldSeason) do
+        if v == Config.WeatherType then world.season = k end
+    end
     if Config.TimeSync then syncTime() timeBool = true end
     if Config.WeatherSync then pickWeather() weatherBool = true end
 end)
@@ -69,6 +72,7 @@ function syncTime()
 
     end
     print(_U("time_hour")..hour.." - ".._U("time_minute")..minute)
+
     world.hour = hour
     world.minute = minute
     world:RpcSet()

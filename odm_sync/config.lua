@@ -12,12 +12,13 @@ Config.RealTime = true -- Set it to true if you want the Real-Life time in game
 
 -- Weather Settings
 Config.WeatherSync = true -- Set it to false if you don't want your weather to be synced
-Config.WeatherType = "Summer" -- You have to write here one of the Seasons you can find below. You can customize your own season as you wish.
+Config.WeatherType = "Winter" -- You have to write here one of the Seasons you can find below. You can customize your own season as you wish.
 Config.TimerToSyncWeather = 600 -- If you wanna test your personal list of Weather put this number around 30 so you can test it and see changes in game.
 
+Config.WorldSeason = {"Summer", "Winter", "Autumn", "Spring"} -- DO NOT EDIT THIS! It will automatically set your season for the weather you desire!
 
 Config.Seasons = {
-    ['Summer'] = {"Clear", "FIG_07_Storm", "Astronomy", "Announce", "Summer_Overcast_Heavy_01"},
+    ['Summer'] = {"Clear", "FIG_07_Storm", "Astronomy", "Announce", "Summer_Overcast_Heavy_01"}, -- DO NOT EDIT SEASON'S NAME!
     ['Winter'] = {},
     ['Autumn'] = {},
     ['Spring'] = {}

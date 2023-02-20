@@ -22,6 +22,8 @@ Locales['en'] = {
     ['player_left'] = "Player just left - ID: ",
     ['time_sync'] = "Time is now synced",
     ['weather_sync'] = "Weather is now synced",
+    ['time_hour'] = "Hour: ",
+    ['time_minute'] = "Minute: ",
 }
 
 Locales['it'] = {
@@ -29,6 +31,8 @@ Locales['it'] = {
     ['player_left'] = "Giocatore disconnesso con ID: ",
     ['time_sync'] = "Orario sincronizzato",
     ['weather_sync'] = "Meteo sincronizzato",
+    ['time_hour'] = "Ora: ",
+    ['time_minute'] = "Minuti: ",
 }
 
 Locales['fr'] = { -- Credits to Layenz
@@ -36,6 +40,8 @@ Locales['fr'] = { -- Credits to Layenz
     ['player_left'] = "Un joueur vient de se déconnecter - ID: ",
     ['time_sync'] = "Le temps est maintenant synchronisé",
     ['weather_sync'] = "La météo est maintenant synchronisée",
+    ['time_hour'] = "Heure: ",
+    ['time_minute'] = "Minute: ",
 }
 
 Locales['pl'] = { -- Credits to SamWieszKto
@@ -43,6 +49,8 @@ Locales['pl'] = { -- Credits to SamWieszKto
     ['player_left'] = "Gracz rozłączył się - ID: ",
     ['time_sync'] = "Czas został zsynchronizowany",
     ['weather_sync'] = "Pogoda została zsynchronizowana",
+    ['time_hour'] = "Godzina: ",
+    ['time_minute'] = "Minuta: ",
 }
 
 Locales['de'] = { -- Credits to .voy
@@ -50,4 +58,6 @@ Locales['de'] = { -- Credits to .voy
     ['player_left'] = "Spieler verlassen - ID: ",
     ['time_sync'] = "Zeit ist nun synchronisiert",
     ['weather_sync'] = "Wetter ist nun synchronisiert",
+    ['time_hour'] = "Stunde: ",
+    ['time_minute'] = "Minute: ",
 }
