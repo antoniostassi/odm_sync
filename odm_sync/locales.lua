@@ -24,6 +24,7 @@ Locales['en'] = {
     ['weather_sync'] = "Weather is now synced",
     ['time_hour'] = "Hour: ",
     ['time_minute'] = "Minute: ",
+    ['current_season'] = "The season is now in sync with the real world. Season ID:"
 }
 
 Locales['it'] = {
@@ -33,6 +34,7 @@ Locales['it'] = {
     ['weather_sync'] = "Meteo sincronizzato",
     ['time_hour'] = "Ora: ",
     ['time_minute'] = "Minuti: ",
+    ['current_season'] = "La stagione e' ora sincronizzata con il mondo reale. ID Stagione:"
 }
 
 Locales['fr'] = { -- Credits to Layenz
@@ -42,6 +44,7 @@ Locales['fr'] = { -- Credits to Layenz
     ['weather_sync'] = "La météo est maintenant synchronisée",
     ['time_hour'] = "Heure: ",
     ['time_minute'] = "Minute: ",
+    ['current_season'] = "La saison est maintenant en phase avec le monde réel. ID de saison:"
 }
 
 Locales['pl'] = { -- Credits to SamWieszKto
@@ -51,6 +54,7 @@ Locales['pl'] = { -- Credits to SamWieszKto
     ['weather_sync'] = "Pogoda została zsynchronizowana",
     ['time_hour'] = "Godzina: ",
     ['time_minute'] = "Minuta: ",
+    ['current_season'] = "Sezon jest teraz zsynchronizowany z prawdziwym światem. Identyfikator sezonu:"
 }
 
 Locales['de'] = { -- Credits to .voy
@@ -60,4 +64,5 @@ Locales['de'] = { -- Credits to .voy
     ['weather_sync'] = "Wetter ist nun synchronisiert",
     ['time_hour'] = "Stunde: ",
     ['time_minute'] = "Minute: ",
+    ['current_season'] = "Die Saison ist jetzt synchron mit der realen Welt. Saison-ID:"
 }

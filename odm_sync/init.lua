@@ -9,9 +9,6 @@ local weatherType -- do not touch
 
 
 registerForEvent("init", function()
-    for k,v in pairs(Config.WorldSeason) do
-        if v == Config.WeatherType then world.season = k end
-    end
     if Config.TimeSync then syncTime() timeBool = true end
     if Config.WeatherSync then pickWeather() weatherBool = true end
 end)
@@ -36,20 +33,43 @@ registerForEvent("update", function(delta) -- Syncing Time/Weather
 end)
 
 function pickWeather()
-    local randomWeather = math.random(1, #Config.Seasons[Config.WeatherType])
-    for _, _weatherType in pairs(Config.Seasons[Config.WeatherType]) do 
-        if randomWeather == _ then 
-            if weatherType ~= _weatherType then 
-                weatherType = _weatherType 
-                syncWeather(weatherType)
-            else pickWeather() --print("dbg") 
+
+    if not Config.RealTime then
+        local randomWeather = math.random(1, #Config.Seasons[Config.WeatherType])
+        for _, _weatherType in pairs(Config.Seasons[Config.WeatherType]) do 
+            if randomWeather == _ then 
+                if weatherType ~= _weatherType then 
+                    weatherType = _weatherType 
+                    syncWeather(weatherType)
+                else pickWeather() --print("dbg") 
+                end
+            end
+        end
+            
+        for k,v in pairs(Config.WorldSeason) do
+            if v == Config.WeatherType then world.season = k end
+        end
+    else
+        for month, season in pairs(Config.RLWeather) do
+            if world.month == month then world.season = season print(_U("current_season").." "..season) end
+        end
+        local myImportantString
+            if world.season == 1 then myImportantString = "Summer"
+            elseif world.season == 2 then myImportantString = "Winter"
+            elseif world.season == 3 then myImportantString = "Autumn"
+            elseif world.season == 4 then myImportantString = "Spring" end
+        local randomWeather = math.random(1, #Config.Seasons[myImportantString])
+        for _, _weatherType in pairs(Config.Seasons[myImportantString]) do 
+            if randomWeather == _ then 
+                if weatherType ~= _weatherType then 
+                    weatherType = _weatherType 
+                    syncWeather(weatherType) -- print(weatherType) --debug 
+                else pickWeather() 
+                end
             end
         end
     end
-end
 
-function sleep(n)
-    os.execute("sleep " .. tonumber(n))
 end
 
 local hour = Config.Hour
@@ -80,7 +100,8 @@ end
 
 function syncWeather(weatherType)
     print(_U("weather_sync").." "..weatherType)
-    world.weather = weatherType -- Choose your favourite weather
+    world.weather = weatherType 
+
     world:RpcSet()
 end
 
