@@ -32,20 +32,22 @@ registerForEvent("update", function(delta) -- Syncing Time/Weather
     end
 end)
 
-function pickWeather()
-
-    if not Config.RealTime then
-        local randomWeather = math.random(1, #Config.Seasons[Config.WeatherType])
-        for _, _weatherType in pairs(Config.Seasons[Config.WeatherType]) do 
-            if randomWeather == _ then 
-                if weatherType ~= _weatherType then 
-                    weatherType = _weatherType 
-                    syncWeather(weatherType)
-                else pickWeather() --print("dbg") 
-                end
+function getRandomWeather(myWeatherType)
+    local randomWeather = math.random(1, #Config.Seasons[myWeatherType])
+    for _, _weatherType in pairs(Config.Seasons[myWeatherType]) do 
+        if randomWeather == _ then 
+            if weatherType ~= _weatherType then 
+                weatherType = _weatherType 
+                syncWeather(weatherType)
+            else pickWeather() --print("dbg") 
             end
         end
-            
+    end
+end
+
+function pickWeather()
+    if not Config.RealTime then
+        getRandomWeather(Config.WeatherType)            
         for k,v in pairs(Config.WorldSeason) do
             if v == Config.WeatherType then world.season = k end
         end
@@ -58,18 +60,8 @@ function pickWeather()
             elseif world.season == 2 then myImportantString = "Winter"
             elseif world.season == 3 then myImportantString = "Autumn"
             elseif world.season == 4 then myImportantString = "Spring" end
-        local randomWeather = math.random(1, #Config.Seasons[myImportantString])
-        for _, _weatherType in pairs(Config.Seasons[myImportantString]) do 
-            if randomWeather == _ then 
-                if weatherType ~= _weatherType then 
-                    weatherType = _weatherType 
-                    syncWeather(weatherType) -- print(weatherType) --debug 
-                else pickWeather() 
-                end
-            end
-        end
+        getRandomWeather(myImportantString)
     end
-
 end
 
 local hour = Config.Hour

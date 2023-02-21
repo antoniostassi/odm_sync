@@ -4,7 +4,7 @@ Config = {}
 Config.Locale = "en" -- Set here your language.
 
 -- Time Settings
-Config.TimeSync = true -- Set it to false if you don't want your time to be synced
+Config.TimeSync = true -- I do not recommend to put this false
 Config.Hour = 8 -- ( This number represents the game time in hours )
 Config.Minute = 0 -- ( Same but with minutes )
 Config.TimerToSyncTime = 30 -- This number represents the timer for every time the script has to sync the time.
@@ -12,7 +12,7 @@ Config.RealTime = true -- Set it to true if you want the Real-Life time in game
 
 -- Weather Settings
 -- IF REALTIME IS TRUE, LET "WEATHERSYNC" TRUE AND DON'T EDIT ANYTHING!
-Config.WeatherSync = true -- Set it to false if you don't want your weather to be synced. ( I do not recommend this )
+Config.WeatherSync = true -- I do not recommend to put this false
 Config.WeatherType = "Summer" -- (OR Summer - Autumn - Spring). You have to write here one of the Seasons you can find below. You can customize your own season as you wish.
 Config.TimerToSyncWeather = 600 -- If you wanna test your personal list of Weather put this number around 30 so you can test it and see changes in game.
 
