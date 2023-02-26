@@ -1,5 +1,3 @@
-require("config")
-require("locales")
 
 local players = {}
 local timeBool = false
@@ -49,17 +47,17 @@ function pickWeather()
     if not Config.RealTime then
         getRandomWeather(Config.WeatherType)            
         for k,v in pairs(Config.WorldSeason) do
-            if v == Config.WeatherType then world.season = k end
+            if v == Config.WeatherType then server.world.season = k end
         end
     else
         for month, season in pairs(Config.RLWeather) do
-            if world.month == month then world.season = season print(_U("current_season").." "..season) end
+            if server.world.month == month then server.world.season = season print(_U("current_season").." "..season) end
         end
         local myImportantString
-            if world.season == 1 then myImportantString = "Summer"
-            elseif world.season == 2 then myImportantString = "Winter"
-            elseif world.season == 3 then myImportantString = "Autumn"
-            elseif world.season == 4 then myImportantString = "Spring" end
+            if server.world.season == 1 then myImportantString = "Summer"
+            elseif server.world.season == 2 then myImportantString = "Winter"
+            elseif server.world.season == 3 then myImportantString = "Autumn"
+            elseif server.world.season == 4 then myImportantString = "Spring" end
         getRandomWeather(myImportantString)
     end
 end
@@ -73,8 +71,8 @@ function syncTime()
             time = os.date('*t')
             hour = time.hour
             minute = time.min
-            world.day = time.day
-            world.month = time.month
+            server.world.day = time.day
+            server.world.month = time.month
     else
         minute = minute + 2
         if minute > 59 then
@@ -85,16 +83,16 @@ function syncTime()
     end
     print(_U("time_hour")..hour.." - ".._U("time_minute")..minute)
 
-    world.hour = hour
-    world.minute = minute
-    world:RpcSet()
+    server.world.hour = hour
+    server.world.minute = minute
+    server.world:RpcSet()
 end
 
 function syncWeather(weatherType)
     print(_U("weather_sync").." "..weatherType)
-    world.weather = weatherType 
+    server.world.weather = weatherType 
 
-    world:RpcSet()
+    server.world:RpcSet()
 end
 
 -- Notifying player login/quit
