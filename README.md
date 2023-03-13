@@ -17,5 +17,9 @@ If you decide not to sync your weather/time/season with the IRL one, you can per
 - Change time/season/weather with commands in game chat (Put yourself as admin first)
 - See your coords in game with ?coords
 
+Known Issues:
+--
+Some phrases on locale.lua are missing for other languages. Only IT is completed.
+
 Compatible with HogWarp 0_4_0 and latest server version
 --
