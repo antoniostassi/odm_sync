@@ -1,13 +1,30 @@
 
+require('config')
+require('locale')
+require('dependencies.json')
+require('dependencies.storing')
+require("staff_data.staff_config")
+require('staff_data.staff_commands')
+
+
+
 local players = {}
 local timeBool = false
 local weatherBool = false
 local weatherType -- do not touch
 
-
+hour = Config.Hour
+minute = Config.Minute
 
 registerForEvent("init", function()
-    if Config.TimeSync then syncTime() timeBool = true end
+    if Config.TimeSync then 
+        local myData = LoadData("odm_sync", "data/DataTime.json")
+        if myData ~= nil then
+            minute = myData._minute
+            hour = myData._hour
+        end
+        syncTime() timeBool = true 
+    end
     if Config.WeatherSync then pickWeather() weatherBool = true end
 end)
 
@@ -62,8 +79,6 @@ function pickWeather()
     end
 end
 
-local hour = Config.Hour
-local minute = Config.Minute
 
 function syncTime()
     print(_U("time_sync"))
@@ -74,12 +89,20 @@ function syncTime()
             server.world.day = time.day
             server.world.month = time.month
     else
-        minute = minute + 2
+        minute = minute + 1
         if minute > 59 then
             minute = 0
+            if hour >= 23 then 
+            hour = 0
+            else
             hour = hour + 1
+            end
         end
-
+        local SaveDataTime = {
+            _hour = hour,
+            _minute = minute,
+        }
+        SaveData("odm_sync", "data/DataTime.json", SaveDataTime) -- to create function
     end
     print(_U("time_hour")..hour.." - ".._U("time_minute")..minute)
 
@@ -98,9 +121,15 @@ end
 -- Notifying player login/quit
 registerForEvent("player_joined", function(Player) -- Notify when players join
     print(_U("player_joined")..Player.id)
-
+    CheckStaff(Player)
+    UpdateLoggedPlayers(Player)
 end)
 
 registerForEvent("player_left", function(Player) -- Notify when players left
     print(_U("player_left")..Player.id)
 end)
+
+
+
+
+
